@@ -1,0 +1,26 @@
+{
+  "name": "gha-rerun-ledger",
+  "version": "1.0.0",
+  "description": "Per-attempt GitHub Actions job-time ledger with offline snapshot replay",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "gha-rerun-ledger": "bin/gha-rerun-ledger.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "examples/",
+    "fixtures/",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "demo": "node bin/gha-rerun-ledger.js --demo"
+  }
+}

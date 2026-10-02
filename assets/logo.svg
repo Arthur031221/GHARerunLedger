@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 72" role="img" aria-labelledby="title">
+  <title id="title">Three GitHub Actions timing bars</title>
+  <rect x="8" y="12" width="54" height="8" rx="4" fill="#3f63b9" />
+  <rect x="62" y="12" width="22" height="8" rx="4" fill="#b85a42" />
+  <rect x="8" y="32" width="38" height="8" rx="4" fill="#3f63b9" />
+  <rect x="46" y="32" width="38" height="8" rx="4" fill="#b85a42" />
+  <rect x="8" y="52" width="68" height="8" rx="4" fill="#3f63b9" />
+  <rect x="76" y="52" width="22" height="8" rx="4" fill="#b85a42" />
+</svg>

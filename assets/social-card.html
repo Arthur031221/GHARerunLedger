@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200, initial-scale=1">
+  <title>gha-rerun-ledger social card</title>
+  <style>
+    @font-face {
+      font-family: LedgerSans;
+      src: url("fonts/LiberationSans-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: LedgerSans;
+      src: url("fonts/LiberationSans-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: LedgerMono;
+      src: url("fonts/LiberationMono-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+    }
+    :root {
+      color-scheme: light;
+      --paper: #f9fbfd;
+      --ink: #18263c;
+      --blue: #3f63b9;
+      --retry: #b85a42;
+      --slate: #e8edf4;
+      --muted: #516079;
+      --rule: #d9e1eb;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1200px;
+      height: 675px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: LedgerSans, sans-serif;
+    }
+    .canvas {
+      width: 1200px;
+      height: 675px;
+      padding: 36px 56px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .masthead {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.25px;
+    }
+    .brand img { width: 40px; height: 26px; }
+    .top-note, .eyebrow, .report-label, .table-head, .metric-label, .footnote {
+      font-family: LedgerMono, monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .top-note { color: var(--muted); font-size: 10px; }
+    .content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 455px 1fr;
+      column-gap: 54px;
+      align-items: center;
+      padding: 24px 0 20px;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      max-width: 450px;
+      margin: 0;
+      font-size: 49px;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -1.7px;
+    }
+    h1 span { color: var(--blue); }
+    .dek {
+      max-width: 420px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.48;
+    }
+    .command {
+      max-width: 430px;
+      margin-top: 32px;
+      padding: 15px 16px;
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: 12px/1.4 LedgerMono, monospace;
+      white-space: nowrap;
+    }
+    .command span { color: var(--blue); }
+    .command small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font: 10px/1.4 LedgerMono, monospace;
+    }
+    .report {
+      min-height: 444px;
+      padding: 24px 25px 20px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(24, 38, 60, 0.045);
+    }
+    .report-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+    .report-label { color: var(--muted); font-size: 9px; }
+    .fixture {
+      padding: 5px 7px;
+      border: 1px solid #ead0c9;
+      border-radius: 4px;
+      color: var(--retry);
+      font: 9px LedgerMono, monospace;
+      white-space: nowrap;
+    }
+    h2 {
+      margin: 25px 0 7px;
+      font-size: 22px;
+      letter-spacing: -0.45px;
+    }
+    .subtitle { color: var(--muted); font-size: 12px; }
+    .duration-bar {
+      width: 100%;
+      height: 16px;
+      display: flex;
+      overflow: hidden;
+      margin-top: 17px;
+      border-radius: 4px;
+      background: var(--slate);
+    }
+    .duration-bar .failed { width: 61.51%; background: var(--retry); }
+    .duration-bar .passed { width: 38.49%; background: var(--blue); }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 11px 0 22px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+    .swatch { width: 8px; height: 8px; border-radius: 2px; }
+    .swatch.failed { background: var(--retry); }
+    .swatch.passed { background: var(--blue); }
+    .legend-item b { font: 700 13px LedgerMono, monospace; }
+    .ledger {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 11px;
+    }
+    .ledger th {
+      padding: 9px 5px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      text-align: left;
+      font: 9px LedgerMono, monospace;
+    }
+    .ledger td {
+      padding: 12px 5px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: middle;
+    }
+    .ledger td:nth-child(1), .ledger td:nth-child(4), .ledger td:nth-child(5) {
+      font-family: LedgerMono, monospace;
+    }
+    .failure { color: var(--retry); font-weight: 700; }
+    .success { color: var(--blue); font-weight: 700; }
+    .footnote {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1.55;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    footer {
+      height: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      color: var(--muted);
+      font: 9px LedgerMono, monospace;
+    }
+    footer span:last-child { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <header class="masthead">
+      <div class="brand"><img src="logo.svg" alt=""><span>gha-rerun-ledger</span></div>
+      <div class="top-note">ATTEMPT RECORDS / OFFLINE REPLAY</div>
+    </header>
+    <section class="content">
+      <div>
+        <div class="eyebrow">A report you can inspect</div>
+        <h1>Account for<br><span>GitHub Actions</span><br>reruns.</h1>
+        <p class="dek">A per-attempt job ledger with metadata snapshots you can replay offline.</p>
+        <div class="command"><span>$</span> gha-rerun-ledger --demo<small>TRY THE SYNTHETIC FIXTURE WITHOUT GH AUTH</small></div>
+      </div>
+      <section class="report" aria-label="Synthetic demo attempt report">
+        <div class="report-head">
+          <div class="report-label">RUN 9001 / BUILD AND TEST</div>
+          <div class="fixture">SYNTHETIC DEMO</div>
+        </div>
+        <h2>Observed job seconds</h2>
+        <div class="subtitle">Distinct job intervals assigned to each attempt</div>
+        <div class="duration-bar" aria-label="163 seconds failed, 102 seconds later successful"><div class="failed"></div><div class="passed"></div></div>
+        <div class="legend">
+          <div class="legend-item"><span class="swatch failed"></span><span>Failed attempt</span><b>163</b></div>
+          <div class="legend-item"><span class="swatch passed"></span><span>Later success</span><b>102</b></div>
+        </div>
+        <table class="ledger">
+          <thead><tr><th>TRY</th><th>RESULT</th><th>OWNED</th><th>REUSED</th><th>JOB SEC</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td class="failure">failure</td><td>3</td><td>0</td><td>163</td></tr>
+            <tr><td>02</td><td class="success">success</td><td>2</td><td>2</td><td>102</td></tr>
+          </tbody>
+        </table>
+        <div class="footnote">Parallel jobs add together. Elapsed job seconds are not billed minutes and do not estimate savings.</div>
+      </section>
+    </section>
+    <footer><span>github.com/Arthur031221/gha-rerun-ledger</span><span>Each attempt keeps its own row.</span></footer>
+  </main>
+</body>
+</html>

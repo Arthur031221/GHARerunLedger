@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "repository": "octo-labs/demo-service",
+  "sample_kind": "synthetic_demo",
+  "collected_at": "2026-10-03T00:00:00Z",
+  "limit": 20,
+  "runs": [
+    {
+      "excluded": false,
+      "initial_parent": {
+        "observed_at": "2026-10-03T00:00:00Z",
+        "metadata": {
+          "id": 9001,
+          "workflow_id": 77,
+          "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+          "status": "completed",
+          "name": "Build and test",
+          "head_branch": "ledger-example",
+          "run_number": 51,
+          "run_attempt": 2,
+          "conclusion": "success"
+        }
+      },
+      "final_parent": {
+        "observed_at": "2026-10-03T00:00:08Z",
+        "metadata": {
+          "id": 9001,
+          "workflow_id": 77,
+          "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+          "status": "completed",
+          "name": "Build and test",
+          "head_branch": "ledger-example",
+          "run_number": 51,
+          "run_attempt": 2,
+          "conclusion": "success"
+        }
+      },
+      "attempts": [
+        {
+          "number": 1,
+          "requested_at": "2026-10-03T00:00:00Z",
+          "metadata": {
+            "id": 9001,
+            "workflow_id": 77,
+            "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+            "status": "completed",
+            "name": "Build and test",
+            "head_branch": "ledger-example",
+            "run_number": 51,
+            "run_attempt": 1,
+            "conclusion": "failure"
+          },
+          "pages": [
+            {
+              "page": 1,
+              "per_page": 100,
+              "total_count": 3,
+              "fetched_at": "2026-10-03T00:00:01Z",
+              "jobs": [
+                {
+                  "id": 501,
+                  "run_id": 9001,
+                  "run_attempt": 1,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Prepare toolchain",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:00:00Z",
+                  "completed_at": "2026-09-30T09:00:15Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Resolve cache",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:00Z",
+                      "completed_at": "2026-09-30T09:00:02Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Download toolchain",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:02Z",
+                      "completed_at": "2026-09-30T09:00:12Z"
+                    }
+                  ]
+                },
+                {
+                  "id": 502,
+                  "run_id": 9001,
+                  "run_attempt": 1,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Unit tests",
+                  "status": "completed",
+                  "conclusion": "failure",
+                  "started_at": "2026-09-30T09:00:05Z",
+                  "completed_at": "2026-09-30T09:01:40Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Compile test fixtures",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:05Z",
+                      "completed_at": "2026-09-30T09:00:35Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Run unit tests",
+                      "status": "completed",
+                      "conclusion": "failure",
+                      "started_at": "2026-09-30T09:00:35Z",
+                      "completed_at": "2026-09-30T09:01:25Z"
+                    },
+                    {
+                      "number": 3,
+                      "name": "Finalize",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:01:25Z",
+                      "completed_at": "2026-09-30T09:01:30Z"
+                    }
+                  ]
+                },
+                {
+                  "id": 503,
+                  "run_id": 9001,
+                  "run_attempt": 1,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Lint",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:00:03Z",
+                  "completed_at": "2026-09-30T09:00:56Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Run lint",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:03Z",
+                      "completed_at": "2026-09-30T09:00:42Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Upload cache",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:42Z",
+                      "completed_at": "2026-09-30T09:00:49Z"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fetched_at": "2026-10-03T00:00:00Z"
+        },
+        {
+          "number": 2,
+          "requested_at": "2026-10-03T00:00:04Z",
+          "metadata": {
+            "id": 9001,
+            "workflow_id": 77,
+            "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+            "status": "completed",
+            "name": "Build and test",
+            "head_branch": "ledger-example",
+            "run_number": 51,
+            "run_attempt": 2,
+            "conclusion": "success"
+          },
+          "pages": [
+            {
+              "page": 1,
+              "per_page": 100,
+              "total_count": 4,
+              "fetched_at": "2026-10-03T00:00:01Z",
+              "jobs": [
+                {
+                  "id": 501,
+                  "run_id": 9001,
+                  "run_attempt": 1,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Prepare toolchain",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:00:00Z",
+                  "completed_at": "2026-09-30T09:00:15Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Resolve cache",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:00Z",
+                      "completed_at": "2026-09-30T09:00:02Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Download toolchain",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:02Z",
+                      "completed_at": "2026-09-30T09:00:12Z"
+                    }
+                  ]
+                },
+                {
+                  "id": 503,
+                  "run_id": 9001,
+                  "run_attempt": 1,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Lint",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:00:03Z",
+                  "completed_at": "2026-09-30T09:00:56Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Run lint",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:03Z",
+                      "completed_at": "2026-09-30T09:00:42Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Upload cache",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:00:42Z",
+                      "completed_at": "2026-09-30T09:00:49Z"
+                    }
+                  ]
+                },
+                {
+                  "id": 504,
+                  "run_id": 9001,
+                  "run_attempt": 2,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Unit tests",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:02:00Z",
+                  "completed_at": "2026-09-30T09:03:10Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Compile test fixtures",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:02:00Z",
+                      "completed_at": "2026-09-30T09:02:22Z"
+                    },
+                    {
+                      "number": 2,
+                      "name": "Run unit tests",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:02:22Z",
+                      "completed_at": "2026-09-30T09:02:58Z"
+                    }
+                  ]
+                },
+                {
+                  "id": 505,
+                  "run_id": 9001,
+                  "run_attempt": 2,
+                  "head_sha": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+                  "name": "Package artifact",
+                  "status": "completed",
+                  "conclusion": "success",
+                  "started_at": "2026-09-30T09:03:10Z",
+                  "completed_at": "2026-09-30T09:03:42Z",
+                  "labels": [
+                    "ubuntu-24.04"
+                  ],
+                  "steps": [
+                    {
+                      "number": 1,
+                      "name": "Build package",
+                      "status": "completed",
+                      "conclusion": "success",
+                      "started_at": "2026-09-30T09:03:10Z",
+                      "completed_at": "2026-09-30T09:03:31Z"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fetched_at": "2026-10-03T00:00:04Z"
+        }
+      ]
+    }
+  ],
+  "run_list_total_count": 1
+}
