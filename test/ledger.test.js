@@ -480,6 +480,20 @@ test('repository inference accepts GitHub origins and rejects other hosts', () =
   assert.throws(() => repositoryFromRemote('https://github.com/owner/repo/tree/main'), /owner\/name/);
 });
 
+test('collection preserves a repository name ending in .git', async () => {
+  const requests = [];
+  const snapshot = await collectSnapshot('owner/project.git', 1, {
+    request: async (endpoint) => {
+      requests.push(endpoint);
+      return { total_count: 0, workflow_runs: [] };
+    },
+    now: () => COLLECTED,
+  });
+  assert.equal(snapshot.repository, 'owner/project.git');
+  assert.equal(requests[0], '/repos/owner/project.git/actions/runs?status=completed&per_page=1');
+  assert.equal(repositoryFromRemote('https://github.com/owner/project.git.git'), 'owner/project.git');
+});
+
 test('Markdown text escapes control characters and table separators', () => {
   assert.equal(markdownText('safe | [name]\n'), 'safe \\| \\[name\\]\\u{A}');
   const hostile = structuredClone(demo());
