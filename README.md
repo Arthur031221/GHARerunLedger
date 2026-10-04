@@ -143,7 +143,7 @@ Snapshots retain run and job API responses, including repository, workflow, bran
 <details>
 <summary><b>CI usage</b></summary>
 
-The test workflow runs `npm ci` and `npm test` on Node.js 20, 22, and 24. These test commands do not need `gh`, `GH_TOKEN`, or GitHub API access.
+The test workflow runs `npm ci` and `npm test` on Node.js 20, 22, 24, and 26. These test commands do not need `gh`, `GH_TOKEN`, or GitHub API access.
 
 For live collection in a workflow, grant the job read access to Actions and pass its token to GitHub CLI as `GH_TOKEN`. Do not put the token in a report or snapshot. The CLI sends GET requests only.
 
