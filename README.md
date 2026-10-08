@@ -1,6 +1,6 @@
 <h1 align="center">
   <img src="assets/logo.svg" width="72" alt=""><br>
-  gha-rerun-ledger
+  GHARerunLedger
 </h1>
 
 <p align="center">
@@ -8,9 +8,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Arthur031221/gha-rerun-ledger/stargazers"><img src="https://img.shields.io/github/stars/Arthur031221/gha-rerun-ledger?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/Arthur031221/gha-rerun-ledger/actions/workflows/ci.yml"><img src="https://github.com/Arthur031221/gha-rerun-ledger/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/Arthur031221/gha-rerun-ledger" alt="MIT license"></a>
+  <a href="https://github.com/Arthur031221/GHARerunLedger/stargazers"><img src="https://img.shields.io/github/stars/Arthur031221/GHARerunLedger?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Arthur031221/GHARerunLedger/actions/workflows/ci.yml"><img src="https://github.com/Arthur031221/GHARerunLedger/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Arthur031221/GHARerunLedger" alt="MIT license"></a>
 </p>
 
 <p align="center">
@@ -30,13 +30,13 @@
   <img src="assets/demo.gif" alt="The synthetic demo and its offline replay show two attempt rows and the same 163 and 102 second job-time split." width="100%">
 </p>
 
-## Why gha-rerun-ledger
+## Why GHARerunLedger
 
 Reruns have attempt history, but summaries can hide which attempt owned a job and how much elapsed job time was observed. This CLI writes one row for each observed attempt and saves the metadata needed to replay the report offline.
 
 The ledger assigns each distinct job ID to its first observed attempt. Repeated records must agree before they count as carried work. Skipped jobs, missing intervals, empty attempts, inferred owners, and excluded runs remain visible in coverage.
 
-[gha-doctor](https://github.com/linnea-bakshi/gha-doctor) is a maintained broad audit tool. Its README documents same-commit failure and pass analysis, slow-step history, and recommendations. gha-rerun-ledger focuses on an explicit per-attempt ledger and saved metadata replay. The projects have different scopes. This report does not establish that a retry was flaky or wasted.
+[gha-doctor](https://github.com/linnea-bakshi/gha-doctor) is a maintained broad audit tool. Its README documents same-commit failure and pass analysis, slow-step history, and recommendations. GHARerunLedger focuses on an explicit per-attempt ledger and saved metadata replay. The projects have different scopes. This report does not establish that a retry was flaky or wasted.
 
 ## Features
 
@@ -113,12 +113,12 @@ The report classifies an attempt as failed before a pass only when its conclusio
 
 ### Comparison
 
-| Tool | Documented focus | gha-rerun-ledger report |
+| Tool | Documented focus | GHARerunLedger report |
 | --- | --- | --- |
 | [gha-doctor](https://github.com/linnea-bakshi/gha-doctor) | Broad Actions audit with same-commit failure and pass analysis, slow-step history, and recommendations. | Keeps a per-attempt ledger and a metadata snapshot for offline replay. |
 | [gh-actions-usage](https://github.com/codiform/gh-actions-usage) | Elapsed job-time totals for a selected billing period. Its README counts the latest attempt for a rerun job. | Samples recent completed runs and retains separate rows for observed attempts. It does not calculate billing-period totals. |
 
-The comparison describes documented scope. gha-rerun-ledger does not claim that either tool lacks snapshot or retry features beyond those statements.
+The comparison describes documented scope. GHARerunLedger does not claim that either tool lacks snapshot or retry features beyond those statements.
 
 <details>
 <summary><b>Options and report fields</b></summary>
@@ -166,7 +166,7 @@ For live collection in a workflow, grant the job read access to Actions and pass
 
 ## Contributing
 
-Run `npm ci` and `npm test` before sending a change. See [CONTRIBUTING.md](CONTRIBUTING.md) for test and media instructions. Report defects through [GitHub issues](https://github.com/Arthur031221/gha-rerun-ledger/issues).
+Run `npm ci` and `npm test` before sending a change. See [CONTRIBUTING.md](CONTRIBUTING.md) for test and media instructions. Report defects through [GitHub issues](https://github.com/Arthur031221/GHARerunLedger/issues).
 
 ## License
 
