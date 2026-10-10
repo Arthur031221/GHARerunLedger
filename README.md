@@ -171,3 +171,5 @@ Run `npm ci` and `npm test` before sending a change. See [CONTRIBUTING.md](CONTR
 ## License
 
 The code is MIT licensed. See [LICENSE](LICENSE). Bundled fonts retain their notices under [assets/fonts](assets/fonts).
+
+Assisted by Claude/Codex.
